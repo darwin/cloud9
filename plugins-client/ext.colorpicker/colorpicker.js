@@ -70,10 +70,10 @@ module.exports = ext.register("ext/colorpicker/colorpicker", {
     alone  : true,
     type   : ext.GENERAL,
     skin   : {
-        id   : "colorpicker",
-        data : skin,
-        "media-path" : ide.staticPrefix + "/ext/colorpicker/images/"
-    },
+        id   : "colorpicker",
+        data : skin,
+        "media-path" : ide.staticPrefix + "/ext/colorpicker/images/"
+    },
 
     nodes : [],
 

@@ -1,0 +1,58 @@
+<a:application xmlns:a="http://ajax.org/2005/aml">
+    <a:tab id="tabDocumentation" skin="docktab" visible="false" activepage="0" buttons="close">
+        <a:page id="inAppDocs" caption="Documentation" render="runtime" prerender="true">
+            <a:hbox class="docs-header" align="center" edge="0 4 4" height="37" padding="3">
+                <a:button 
+                  skin    = "btn-docs-nav" 
+                  skinset = "documentation" 
+                  class   = "home"
+                  visible = "false" />
+                <a:button 
+                  skin    = "btn-docs-nav" 
+                  skinset = "documentation" 
+                  class   = "backwards" />
+                <a:button 
+                  skin    = "btn-docs-nav" 
+                  skinset = "documentation" 
+                  class   = "forward"/>
+                <a:filler />
+                <a href="https://docs.c9.io/" target="_blank" class="open-docs-page" pack="end"><span class="icon"></span></a>
+            </a:hbox>
+            <div class="scroll-pane">
+                <ul>
+                    <li class="nav-section">
+                        <div class="nav-section-header">
+                            <a href="javascript:void(0)" onclick="require('ext/documentation/documentation').slideSubSection(this)"><span>Features</span></a>
+                        </div>
+                        <ul class="sub-nav-section">
+                            <li><a href="supported_languages.html"><span>Supported Syntax Highlighting and Themes</span></a></li>
+                            <li><a href="collaboration.html"><span>Collaboration</span></a></li>
+                            <li><a href="colorpicker.html"><span>Color Picker</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-section">
+                        <div class="nav-section-header">
+                            <a href="javascript:void(0)" onclick="require('ext/documentation/documentation').slideSubSection(this)"><span>IDE Components</span></a>
+                        </div>
+                        <ul class="sub-nav-section">
+                            <li><a href="ide_overview.html"><span>IDE Overview</span></a></li>
+                            <li><a href="the_editor.html"><span>The Editor</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-section">
+                        <div class="nav-section-header">
+                            <a href="javascript:void(0)" onclick="require('ext/documentation/documentation').slideSubSection(this)"><span>Creating Workspaces</span></a>
+                        </div>
+                        <ul class="sub-nav-section">
+                            <li><a href="creating_new_workspace.html"><span>Creating a New Workspace</span></a></li>
+                            <li><a href="setting_up_github_workspace.html"><span>Setting up a GitHub Workspace</span></a></li>
+                            <li><a href="setting_up_bitbucket_workspace.html"><span>Setting up a Bitbucket Workspace</span></a></li>
+                            <li><a href="ftp_workspaces.html"><span>Creating an FTP Workspace</span></a></li>
+                        </ul>
+                    </li>                    
+                </ul>
+                <div class="docs-info">We're <a href="https://www.github.com/c9/cloud9ide-documentation">open source</a>! Feel free to pull and contribute.</div>
+            </div>
+        </a:page>
+    </a:tab>
+</a:application>

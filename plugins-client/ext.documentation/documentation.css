@@ -1,0 +1,124 @@
+.doc-panel-bg.docktab {
+    background-color: #eeeeee;
+}
+.doc-panel-bg.docktab .noise_bg {
+    background: #fafcfe url("{ide.staticPrefix}/ext/documentation/images/docs-header.png") repeat-x 0 bottom;
+}
+.docs-header {
+    background: #fafcfe url("{ide.staticPrefix}/ext/documentation/images/docs-header.png") repeat-x 0 bottom;
+    overflow: hidden;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    border: none;
+    padding-bottom: 3px;
+}
+.open-docs-page {
+    display: block;
+    width: 30px;
+    padding-top: 3px;
+    padding-left: 4px;
+    
+    height              : 27px;
+    overflow            : hidden;
+    cursor              : default;
+    position            : relative;
+    -moz-user-select    : -moz-none;
+    -khtml-user-select  : none;
+    -webkit-user-select : none;
+    -o-user-select      : none;
+    user-select         : none;
+    
+    border-radius: 3px;
+    border: 1px solid transparent;
+}
+.open-docs-page:hover {
+    border: 1px solid rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0px 1px 0px 0px #ffffff, inset 0px 1px 0px 0px #ffffff;
+    box-shadow: 0px 1px 0px 0px #ffffff, inset 0px 1px 0px 0px #ffffff;
+    
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.05))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%); /* W3C */    
+}
+.open-docs-page .icon {
+    background: url("{ide.staticPrefix}/ext/documentation/images/open-window.png") no-repeat 0 0;
+    width: 19px;
+    height: 19px;
+    display: block;
+}
+/* the docs list */
+.scroll-pane {
+    padding: 0 7px;
+}
+.scroll-pane ul {
+    margin: 0;
+    padding: 0;
+}
+.nav-section {
+    text-shadow: #ffffff 0px 1px 0px;
+}
+.nav-section a {
+    text-decoration: none;   
+    text-shadow: #ffffff 0px 1px 0px;
+    cursor: default;
+}
+.nav-section-header {
+    background-color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-bottom: 1px; 
+}
+.nav-section-header a {
+    color: #222222;
+    font-size: 14px;
+    text-shadow: #ffffff 0px 1px 0px;
+    padding-left: 18px;
+    background: url("{ide.staticPrefix}/ext/documentation/images/arrows.png") no-repeat 0 -15px;
+    cursor: default;
+}
+.nav-section-header:hover a,
+.nav-section-header a:hover {
+    color: #ab2a25;
+}
+.nav-section-header.expanded a {
+    background-position: 0 4px;
+}
+.nav-section .sub-nav-section {
+    margin-left: 30px;
+    list-style: none;
+    color: #101010;
+    margin: 5px 0 5px 27px;
+    display: none;
+}
+.nav-section .sub-nav-section a {
+    color: #101010;
+    cursor: default;
+}
+.nav-section .sub-nav-section a:hover {
+    
+}
+.nav-section ul li {
+    padding: 5px 0;
+}
+.docs-info {
+    color: #373737;
+    font-size: 11px;
+    font-family: Georgia;
+    margin: 5px 0 0 12px;
+}
+.docs-info a {
+    color: #ab2a25;
+    font-size: 11px;
+    font-family: Georgia;
+    text-decoration: none;
+}
+.docs-info a:hover {
+    text-decoration: underline;
+}
