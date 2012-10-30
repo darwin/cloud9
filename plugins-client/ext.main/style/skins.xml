@@ -11406,11 +11406,14 @@
             position : relative;
             height   : 25px;
         }
-
+        
+        .docs_searchbox.searchbox_textbox {
+            height: 34px;
+        }
+        
         .searchbox_textbox .sbtb_middle {
             height           : 19px;
             padding          : 2px 25px 2px 4px;
-
 
             background: -webkit-gradient(linear,left bottom,left top,color-stop(0.5, rgb(255,255,255)),color-stop(1, rgb(235,235,235)));
             background: -moz-linear-gradient(center bottom,rgb(255,255,255) 50%,rgb(235,235,235) 100%);
@@ -11426,7 +11429,15 @@
             -moz-box-shadow: 0px 1px 0px #ffffff;
             box-shadow: 0px 1px 0px #ffffff;
         }
-
+        
+        .docs_searchbox.searchbox_textbox .sbtb_middle {
+            height: 28px;
+            -webkit-box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.1), 0px 1px 0px 0px #ffffff; ;
+            box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.1), 0px 1px 0px 0px #ffffff; ;
+            background: #ffffff;
+            border: 1px solid #d2d2d2;
+        }
+        
         .searchbox_textbox .sbtb_middle INPUT {
             border           : 0;
             height           : 17px;
@@ -11437,9 +11448,14 @@
             background-color : transparent;
             width: 100%;
         }
+        
+        .docs_searchbox.searchbox_textbox .sbtb_middle INPUT {
+            margin-top: 6px;
+            margin-left: 5px;
+        }
 
         .searchbox_textbox.small_font .sbtb_middle,
-            .searchbox_textbox.small_font .sbtb_middle INPUT {
+        .searchbox_textbox.small_font .sbtb_middle INPUT {
             font-size: 11px;
         }
 
@@ -11461,11 +11477,23 @@
             background-position : 0 0;
             background-repeat   : no-repeat;
         }
-
+        
         .searchbox_textboxFocus .sbtb_icon {
             background-position : 0 -18px;
         }
-
+        
+        .docs_searchbox.searchbox_textbox .sbtb_icon {
+            background-image: url(images/search-icon.png);
+            top: 9px;
+            right: 9px;
+            width: 20px;
+            left: auto;
+        }
+        
+        .docs_searchbox.searchbox_textboxFocus .sbtb_icon {
+            background-position: 0 0;
+        }
+        
         .searchbox_textboxFocus .btnclose {
             position : absolute;
             right : 8px;
@@ -11486,10 +11514,10 @@
         <a:main input="div[2]/input" button="div[3]">
             <div class="searchbox_textbox">
                 <div class="sbtb_arrow"/>
-                <!--div class="sbtb_icon"/-->
                 <div class="sbtb_middle">
                     <input type="text"/>
                 </div>
+                <div class="sbtb_icon"/>
                 <div class="btnclose"> </div>
             </div>
         </a:main>

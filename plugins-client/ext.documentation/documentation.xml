@@ -18,11 +18,16 @@
                 <a:filler />
                 <a href="https://docs.c9.io/" target="_blank" class="open-docs-page" pack="end"><span class="icon"></span></a>
             </a:hbox>
-            <div class="scroll-pane">
+            <a:bar class="scroll-pane" scrollbar="sbShared 37 0 0" flex="1" overflow="hidden" visible="false" anchors="33 0 0 0">
+                <a:textbox id="tbDocsSearch" 
+                  margin = "5 0 4"
+                  skin   = "searchbox_textbox"
+                  class  = "docs_searchbox"
+                  initial-message = "Search" />
                 <ul>
                     <li class="nav-section">
-                        <div class="nav-section-header">
-                            <a href="javascript:void(0)" onclick="require('ext/documentation/documentation').slideSubSection(this)"><span>Features</span></a>
+                        <div class="nav-section-header" onclick="require('ext/documentation/documentation').slideSubSection(this)">
+                            <a href="javascript:void(0)"><span>Features</span></a>
                         </div>
                         <ul class="sub-nav-section">
                             <li><a href="supported_languages.html"><span>Supported Syntax Highlighting and Themes</span></a></li>
@@ -31,8 +36,8 @@
                         </ul>
                     </li>
                     <li class="nav-section">
-                        <div class="nav-section-header">
-                            <a href="javascript:void(0)" onclick="require('ext/documentation/documentation').slideSubSection(this)"><span>IDE Components</span></a>
+                        <div class="nav-section-header" onclick="require('ext/documentation/documentation').slideSubSection(this)">
+                            <a href="javascript:void(0)"><span>IDE Components</span></a>
                         </div>
                         <ul class="sub-nav-section">
                             <li><a href="ide_overview.html"><span>IDE Overview</span></a></li>
@@ -40,8 +45,8 @@
                         </ul>
                     </li>
                     <li class="nav-section">
-                        <div class="nav-section-header">
-                            <a href="javascript:void(0)" onclick="require('ext/documentation/documentation').slideSubSection(this)"><span>Creating Workspaces</span></a>
+                        <div class="nav-section-header" onclick="require('ext/documentation/documentation').slideSubSection(this)">
+                            <a href="javascript:void(0)"><span>Creating Workspaces</span></a>
                         </div>
                         <ul class="sub-nav-section">
                             <li><a href="creating_new_workspace.html"><span>Creating a New Workspace</span></a></li>
@@ -52,7 +57,164 @@
                     </li>                    
                 </ul>
                 <div class="docs-info">We're <a href="https://www.github.com/c9/cloud9ide-documentation">open source</a>! Feel free to pull and contribute.</div>
-            </div>
+            </a:bar>
+            <a:bar visible2="true" class="doc-page" anchors="33 0 0 0">
+				<a:bar class="content" scrollbar="sbShared 4 0 0" anchors="0 0 0 0">
+                    <h1>Running and Debugging Your Code</h1>
+					<p>
+						Cloud9 IDE provides several ways to run and debug your code. We&#39;ll explore each of them in this section of the documentation.
+					</p>
+					<p>
+						Currently, only Javascript/Node.js applications can make use of the debugger. Also, only Javascript/Node.js, Python, Ruby, and Apache+PHP applications can be run.
+					</p>
+					<p>
+						The following information applies to all of the above programming languages.
+					</p>
+					<h2 id='running-code'><a class='heading_anchor' href='#running-code'><i class='headerLinkIcon'></i></a>Running Code</h2>
+					<p>
+						Running your code in Cloud9 is really easy. First, open the file you want to run. Usually, this file is going to be the main entry point to your app; for example, if you&#39;re creating a server, you&#39;d want to run the file that actually instantiates that server.
+					</p>
+					<p>
+						There are two ways to run your code: either through the Run Panel, or through the <strong>run</strong> button in the menu bar.
+					</p>
+					<h3 id='using-the-run-panel'><a class='heading_anchor' href='#using-the-run-panel'><i class='headerLinkIcon'></i></a>Using the Run Panel</h3>
+					<p>
+						Next, click on the <strong>Run</strong> button in <a href="./project_bar.html">the project bar</a>. You&#39;ll notice immediately that your active file is already available to run. Just double-click on the file, and you&#39;ll launch your app.
+					</p>
+					<p>
+						When you&#39;re ready to stop your app, click on the <img src="./icons/stop_button.png" alt="Icon of the Stop Button" /> button in the menu bar at any time.
+					</p>
+					<p>
+						At the bottom of the run panel, you&#39;ll notice a few more options you can set. Filling these textboxes out creates a <em>run scenario</em>, which is like setting up some configurations for the way your code runs. These options are:
+					</p>
+					<ul>
+						<li><strong>Name</strong> the name of your run scenario</li>
+						<li><strong>File Path</strong>: the location of your running file in your project</li>
+						<li><strong>Runtime</strong>: defines how you want your code to be run. Typically, you&#39;d set different runtime versions here.</li>
+						<li><strong>Cmd Line Args</strong>: allows you to provide any additional command line arguments you want to pass to your app</li>
+					</ul>
+					<p>
+						Of course, you can also save your run scenarios; just click on the <strong>add</strong> button at the top of the panel. When you&#39;re ready to run a scenario, click on its name in the Run panel list. To remove a run scenario, click on its name in the run panel list, and then click on the <strong>remove</strong> button.
+					</p>
+					<h3 id='using-the-run-button'><a class='heading_anchor' href='#using-the-run-button'><i class='headerLinkIcon'></i></a>Using the Run Button</h3>
+					<p>
+						The <strong>run</strong> button in the menu bar acts as a sort of short cut to the Run panel. When clicked, the button automatically runs the currently active file. If you have a list of run scenarios already defined, the <strong>run</strong> button also presents a list of those:
+					</p>
+					<p>
+						<img src="./images/run_debug_menu_button.png" alt="Run Button Expanded" />
+					</p>
+					<p>
+						<strong>Run in debug mode</strong> indicates that you want to run the current code through the debugger. <strong>Auto show &amp; hide debug tools</strong> will reveal (or collapse) the debugging tools panel described below. You can also work with this presentation by going to <span class="menucascade"><span class="menuitem"><strong>View</strong></span><span class='menudivider'><strong>&gt;</strong></span><span class='menuitem'><strong>Panels</strong></span></span>, and configuring the debugger there.
+					</p>
+					<h3 id='console-output'><a class='heading_anchor' href='#console-output'><i class='headerLinkIcon'></i></a>Console Output</h3>
+					<p>
+						Every time you run a project, the console expands to reveal output from your program. If you&#39;re launching a server, Cloud9 provides you with a URL to access the project. Otherwise, any statements sent by your application&#39;s print statements (like <code>console.log()</code> for Javascript, <code>print</code> for Python, or <code>puts</code> for Ruby) are also shown here. For example:<br />
+						<img src="./images/runOutput.png" alt="Console run output" />
+					</p>
+					<h2 id='debugging-your-code'><a class='heading_anchor' href='#debugging-your-code'><i class='headerLinkIcon'></i></a>Debugging Your Code</h2>
+					<p>
+						Setting up a project to debug is done in very much the same way as running your code. The only difference is that you must click on the run settings icon in the Run panel <img src="./icons/runSettingsIcon.png" alt="Run Settings Icon: A Gear with an Arrow" /> and select <strong>Run in debug mode</strong>. Similarly, you can select <strong>Run in debug mode</strong> from the run button.
+					</p>
+					<p>
+						Initially, the only difference this will make is the expansion of the debugging toolbar to the right of the editor:<br />
+						<img src="./images/tool_bar.png" alt="The toolbar used for debugging"/>
+					</p>
+					<p>
+						This toolbar, however, grants you the following capabilities:
+					</p>
+					<div markdown="1">
+						<table class="table table-striped table-bordered">
+						<thead>
+						<tr>
+							<th>
+								Toolbar Icon
+							</th>
+							<th>
+								Debugging Function
+							</th>
+							<th>
+								Description
+							</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td class="debug_tools">
+								<img src="./icons/debug_navigation.png" alt="Debugging navigation tools" />
+							</td>
+							<td>
+								<strong>Debugging Navigation</strong>
+							</td>
+							<td>
+								This is a set of tools you can use to move around your code while debugging. You can step into, over, and out of your code, or simply press play to run the process until the next breakpoint.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong><img src="./icons/callStackIcon.png" alt="Icon for the callstack" /></strong>
+							</td>
+							<td>
+								<strong>Callstack</strong>
+							</td>
+							<td>
+								This is a structured list of information about the sequences of your code--basically, which functions are calling what, and where you are in the current process. It also stores local variables and function arguments, if present. You can use this feature to check how your code is running:<br />
+								<img src="./images/callStack.png" alt="Callstack menu window" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="./icons/interactiveIcon.png" alt="Icon for interactive mode" />
+							</td>
+							<td>
+								<strong>Interactive Mode</strong>
+							</td>
+							<td>
+								Lets you evaluate a piece of code, such as expressions or the values and properties of variables. The text field allows you to type any code you want, in case you discover a way to fix you problem: <img src="./images/interactiveMenu.png" alt="Interactive mode window" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="./icons/variablesIcon.png" alt="Icon for variable inspection" />
+							</td>
+							<td>
+								<strong>Variable Inspection</strong>
+							</td>
+							<td>
+								This shows all the related variables (including functions) that are present in the current context: <img src="./images/variablesMenu.png" alt="Variable inspection window"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="./icons/breakpointsIcon.png" alt="Icon for breakpoint list"/>
+							</td>
+							<td>
+								<strong>Breakpoint List</strong>
+							</td>
+							<td>
+								At any point during your coding or debugging session, you can click on the gutter to apply a breakpoint: <img src="./icons/breakpoint.png" alt="Breakpoint Icon"/>. When debugging your code, the process pauses at your established breakpoints, so that you can inspect closely what&#39;s going on in a certain part of the code. You can click on the breakpoint list to view all the breakpoints in your workspace. If you click on the checkbox, you can enable or disable a breakpoint as well. You can also click on a breakpoint in the gutter to disable or enable it.
+							</td>
+						</tr>
+						</tbody>
+						</table>
+					</div>
+					<p>
+						While debugging, you also have the power of the live inspector. While hovering over a piece of code in the editor, you&#39;ll instantly get some floating text that describes the values of that variable, similar to <strong>Variable Inspection</strong>.<br />
+						<img src="./images/debugLiveInspector.png" alt="Live inspection window" />
+					</p>
+                    <div class="docs-footer">
+                        <a:vbox class="docs-link-section" align="center" edge="12 0 0">
+                            <a:hbox align="center" padding="5"> 
+                                <a href="" target="_blank" class="comment">Comments</a>
+                                <a:divider />
+                                <a href="" target="_blank" class="subscribe">Subscribe</a>
+                                <a:divider />
+                                <a href="http://twitter.com/cloud9ide" target="_blank" class="twitter"></a>
+                                <a href="https://c9.io/site/feed/" target="_blank" class="rss"></a>
+                            </a:hbox>
+                        </a:vbox>
+                    </div>
+				</a:bar>
+            </a:bar>
         </a:page>
     </a:tab>
 </a:application>

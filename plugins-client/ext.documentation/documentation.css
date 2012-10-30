@@ -1,8 +1,8 @@
-.doc-panel-bg.docktab {
-    background-color: #eeeeee;
+.doc-panel-bg.docktab .page {
+    
 }
 .doc-panel-bg.docktab .noise_bg {
-    background: #fafcfe url("{ide.staticPrefix}/ext/documentation/images/docs-header.png") repeat-x 0 bottom;
+    background: url("{ide.staticPrefix}/ext/documentation/images/noise_pattern_transparent.png") repeat-x 0 bottom;
 }
 .docs-header {
     background: #fafcfe url("{ide.staticPrefix}/ext/documentation/images/docs-header.png") repeat-x 0 bottom;
@@ -14,6 +14,8 @@
     user-select: none;
     border: none;
     padding-bottom: 3px;
+    position: relative;
+    z-index: 1;
 }
 .open-docs-page {
     display: block;
@@ -55,6 +57,7 @@
 /* the docs list */
 .scroll-pane {
     padding: 0 7px;
+    overflow: hidden;
 }
 .scroll-pane ul {
     margin: 0;
@@ -71,16 +74,28 @@
 .nav-section-header {
     background-color: rgba(255,255,255,0.5);
     border: 1px solid rgba(0,0,0,0.2);
-    padding: 8px 12px;
+    padding: 12px 6px;
     font-size: 14px;
     margin-bottom: 1px; 
+    -webkit-box-shadow: inset 0px 1px 0px 0px #fff;
+    box-shadow: inset 0px 1px 0px 0px #fff;
+}
+.nav-section-header.expanded {
+    background: rgb(0,0,0); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.05) 0%, rgba(255,255,255,0.05) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.05)), color-stop(100%,rgba(255,255,255,0.05))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.05) 0%,rgba(255,255,255,0.05) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,0.05) 0%,rgba(255,255,255,0.05) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0.05) 0%,rgba(255,255,255,0.05) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.05) 0%,rgba(255,255,255,0.05) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 .nav-section-header a {
     color: #222222;
     font-size: 14px;
     text-shadow: #ffffff 0px 1px 0px;
     padding-left: 18px;
-    background: url("{ide.staticPrefix}/ext/documentation/images/arrows.png") no-repeat 0 -15px;
+    background: url("{ide.staticPrefix}/ext/documentation/images/arrows.png") no-repeat 0 -14px;
     cursor: default;
 }
 .nav-section-header:hover a,
@@ -90,28 +105,40 @@
 .nav-section-header.expanded a {
     background-position: 0 4px;
 }
-.nav-section .sub-nav-section {
-    margin-left: 30px;
+.nav-section ul {
     list-style: none;
     color: #101010;
-    margin: 5px 0 5px 27px;
+    margin: 2px 0 5px 0;
     display: none;
 }
-.nav-section .sub-nav-section a {
+.nav-section ul li {
+    margin-left: 30px;
+    border: 1px solid transparent;
+}
+.nav-section ul li:hover {
+    border: 1px solid rgba(0,0,0,0.2);
+    -webkit-box-shadow: inset 0px 1px 0px 0px #fff;
+    box-shadow: inset 0px 1px 0px 0px #fff;
+    margin-left: 0px;
+    padding-left: 30px;
+    
+    background: rgba(255,255,255,0.5) url("{ide.staticPrefix}/ext/documentation/images/sub-menu-arrow.png") no-repeat right 0;
+}
+.nav-section ul a {
     color: #101010;
     cursor: default;
 }
-.nav-section .sub-nav-section a:hover {
+.nav-section ul a:hover {
     
 }
 .nav-section ul li {
-    padding: 5px 0;
+    padding: 6px 0;
 }
 .docs-info {
     color: #373737;
     font-size: 11px;
     font-family: Georgia;
-    margin: 5px 0 0 12px;
+    margin: 7px 0 0 12px;
 }
 .docs-info a {
     color: #ab2a25;
@@ -121,4 +148,120 @@
 }
 .docs-info a:hover {
     text-decoration: underline;
+}
+
+/* doc page */
+.doc-page {
+    background-color: #f0eeea;   
+    color: #373737;
+    font-family: Georgia;
+    font-size: 13px;
+    position: relative;
+    z-index: 0;
+}
+.doc-page h1 {
+    font-family: Georgia;
+    color: #ab2a25;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+    padding: 10px 15px;
+    margin: -10px -15px 10px -15px;
+    background-image: linear-gradient(bottom, rgb(245,245,245) 0%, rgb(253,253,253) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(245,245,245) 0%, rgb(253,253,253) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(245,245,245) 0%, rgb(253,253,253) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(245,245,245) 0%, rgb(253,253,253) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(245,245,245) 0%, rgb(253,253,253) 100%);
+
+    -webkit-box-shadow:  0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+}
+.doc-page .content {
+    padding: 10px 15px;
+    overflow: hidden;
+}
+.doc-page h3,
+.doc-page h2 {
+    color: #373737;
+    font-size: 16px;
+    font-family: Georgia;
+    margin: 10px 0 5px;
+    font-weight: normal;
+}
+.doc-page a {
+    color: #ab2a25;    
+    text-decoration: none;
+}
+.doc-page a:hover {
+    text-decoration: underline;    
+}
+.doc-page p {
+    margin: 5px 0;    
+}
+.doc-page table {
+    color: #373737;
+    font-size: 13px;
+    font-family: Georgia;
+    border-spacing: 0;
+    
+    border-collapse: separate;
+    border-color: #DDDDDD;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    background-color: #f9f8f7;
+}
+.doc-page thead {
+}
+.doc-page thead th {
+    text-align:left;
+    border-left: 1px solid #d6d6d6;
+    border-bottom: 1px solid #D6D6D6;
+    font-family: Arial;
+    font-size: 11px;
+    font-weight: bold;
+    color: #373737;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    vertical-align: bottom;
+}
+.doc-page thead th:first-child {
+    border-left: none;    
+}
+.doc-page td {
+    font-size: 11px;
+    font-family: arial;
+    line-height: 15px;
+    padding: 5px;
+}
+.doc-page tb strong {
+    font-weight: normal;
+    font-size: 11px;
+}
+
+.docs-footer {
+    background: url("{ide.staticPrefix}/ext/documentation/images/footer-line.png") no-repeat center top;
+    height: 40px;
+    margin: 15px -15px -15px;
+    padding-top: 25px;
+}
+.docs-link-section {
+    height: 28px;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #fcfcfc;
+    box-shadow: inset 0px 1px 0px 0px #fcfcfc;
+    border-top: 1px solid #d6d6d6;
+    background: #EEE url("{ide.staticPrefix}/ext/documentation/images/noise_pattern_transparent.png") repeat-x 0 bottom;
+    text-shadow: #ffffff 0px 1px 0px;
+}
+.docs-link-section a {
+    text-decoration: none;
+}
+.docs-link-section .comment {
+    background: url("{ide.staticPrefix}/ext/documentation/images/blue-arrow.png") no-repeat right 0;
+    color: #2d6eb5;
+    padding-right: 20px;
+}
+.docs-link-section .subscribe {
+    color: #505050;    
+    text-decoration: none;
 }

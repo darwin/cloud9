@@ -36,12 +36,14 @@ module.exports = ext.register("ext/documentation/documentation", {
         var name = "ext/documentation/documentation";
         
         dockpanel.addDockable({
-            expanded : 1,
-            width    : 300,
-            barNum   : 2,
+            expanded    : 1,
+            width       : 385,
+            "min-width" : 385,
+            barNum      : 2,
             sections : [
                 {
-                    width : 350,
+                    width : 385,
+                    "min-width" : 385,
                     height : 230,
                     flex : 2,
                     "class": "doc-panel-bg",
@@ -74,14 +76,14 @@ module.exports = ext.register("ext/documentation/documentation", {
     },
     
     slideSubSection: function(triggerNode){
-        var subSectionNode = triggerNode.parentNode.parentNode.getElementsByTagName("ul")[0];
-        if (triggerNode.parentNode["class"].indexOf("expanded") > -1) {
+        var subSectionNode = triggerNode.parentNode.getElementsByTagName("ul")[0];
+        if (triggerNode["class"].indexOf("expanded") > -1) {
             subSectionNode.style.display = "none";
-            apf.setStyleClass(triggerNode.parentNode, "", ["expanded"]);
+            apf.setStyleClass(triggerNode, "", ["expanded"]);
         }
         else {
             subSectionNode.style.display = "block";
-            apf.setStyleClass(triggerNode.parentNode, "expanded");
+            apf.setStyleClass(triggerNode, "expanded");
         } 
     },
     
