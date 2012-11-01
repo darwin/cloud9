@@ -56,7 +56,7 @@
         }
         
         .btn-docs-nav.forward .icon {
-            background-position: 0 0;
+            background-position: -18px 0;
         }
         
         .btn-docs-navDown.btn-docs-nav.forward .icon,
@@ -64,8 +64,12 @@
             background-position: -18px 0;
         }
         
+        .btn-docs-navDisabled.btn-docs-nav.forward .icon {
+            background-position: 0 0;
+        }
+        
         .btn-docs-nav.backwards .icon {
-            background-position: 0 -20px;
+            background-position: -18px -20px;
         }
         
         .btn-docs-navDown.btn-docs-nav.backwards .icon,
@@ -73,17 +77,25 @@
             background-position: -18px -20px;
         }
         
+        .btn-docs-navDisabled.btn-docs-nav.backwards .icon { 
+            background-position: 0 -20px;
+        }
+        
         .btn-docs-nav.home {
             padding: 4px 5px 0 5px;
         }
         
         .btn-docs-nav.home .icon {
-            background-position: 0 -40px;
+            background-position: -18px -40px;
         }
         
         .btn-docs-navDown.btn-docs-nav.home .icon,
         .btn-docs-navOver.btn-docs-nav.home .icon { 
             background-position: -18px -40px;
+        }
+        
+        .btn-docs-navDisabled.home .icon {
+            background-position: 0 -40px;
         }
     ]]></a:style>
 
@@ -95,4 +107,17 @@
         </a:main>
     </a:presentation>
 </a:button>
+<a:text name="text-docs">
+    <a:style><![CDATA[
+        .text-docs {
+            overflow : visible;
+        }
+    ]]></a:style>
+
+    <a:presentation>
+        <a:main container=".">
+            <div class="text-docs"/>
+        </a:main>
+    </a:presentation>
+</a:text>
 </a:skin>

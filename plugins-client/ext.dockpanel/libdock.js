@@ -663,12 +663,15 @@ var DockableLayout = module.exports = function(parentHBox, cbFindPage, cbStorePa
 
         if (!bar.vbox) {
             var _self = this;
+            
+            if (bar.$dockData["min-width"])
+                pNode.minwidth = bar.$dockData["min-width"];
+                
             bar.vbox = pNode.insertBefore(new apf.vbox({
                 padding   : 0,
                 width     : bar.$dockData && bar.$dockData.width || 260,
                 splitters : true,
                 vdock     : 1,
-                minwidth  : 150,
                 "class"   : "dockcol unselectable expandedpanel",
                 childNodes : [
                     new apf.button({

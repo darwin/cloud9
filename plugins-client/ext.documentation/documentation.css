@@ -134,19 +134,19 @@
 .nav-section ul li {
     padding: 6px 0;
 }
-.docs-info {
+.scroll-pane .alert-info {
     color: #373737;
     font-size: 11px;
     font-family: Georgia;
     margin: 7px 0 0 12px;
 }
-.docs-info a {
+.scroll-pane .alert-info a {
     color: #ab2a25;
     font-size: 11px;
     font-family: Georgia;
     text-decoration: none;
 }
-.docs-info a:hover {
+.scroll-pane .alert-info a:hover {
     text-decoration: underline;
 }
 
