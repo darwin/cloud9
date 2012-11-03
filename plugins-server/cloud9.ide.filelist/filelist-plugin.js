@@ -63,20 +63,16 @@ module.exports = function setup(options, imports, register) {
                     return next(new error.Forbidden("You are not allowed to view this resource"));
 
                 // and kick off the download action!
-                var headersSent = false;
                 var query = Url.parse(req.url, true).query;
                 query.showHiddenFiles = !!parseInt(query.showHiddenFiles, 10);
 
+                res.writeHead(200, { "content-type": "text/plain" });
                 Filelist.exec(query, Vfs,
                     // incoming data
                     function(msg) {
                         if (!msg)
                             return;
 
-                        if (!headersSent) {
-                            res.writeHead(200, { "content-type": "text/plain" });
-                            headersSent = true;
-                        }
                         res.write(msg);
                     },
                     // process exit
