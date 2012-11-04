@@ -39,6 +39,7 @@ plugins-client/ext.jsinfer
 plugins-client/ext.zed
 plugins-client/lib.jquery
 plugins-client/lib.impressjs
+plugins-client/lib.underscorejs
 node_modules/
 deps/ace/
 plugins-server/fixtures/
